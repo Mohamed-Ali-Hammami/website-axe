@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>À propos de nous - Votre application Flask</title>
+    <!-- Link to your CSS file -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/about.css') }}">
+    <!-- Optional: Include Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <!-- Logo -->
+            <div class="logo">
+                <img src="{{ url_for('static', filename='logo/logo.png') }}" alt="Logo Axe Trx">
+            </div>
+            
+            <!-- Logo Text -->
+            <div class="logo-text">AXE TRX</div>
+            
+            <h1>À propos de nous - Votre application Flask</h1>
+            
+            <!-- Welcome Message -->
+            <div class="intro">
+                <p>Bienvenue sur notre système de gestion des transactions construit avec Flask !</p>
+            </div>
+        </header>
+        
+        <section>
+            <h2>Vue d'ensemble</h2>
+            <p>Notre application simplifie la gestion des transactions pour les utilisateurs, les administrateurs et les super-utilisateurs. Elle utilise Flask pour le développement web, SQLAlchemy pour la gestion de la base de données, et intègre Auth0 pour une authentification sécurisée des utilisateurs.</p>
+        </section>
+        
+        <section>
+            <h2>Fonctionnalités</h2>
+            <ul>
+                <li>Inscription et authentification des utilisateurs</li>
+                <li>Contrôle d'accès basé sur les rôles (Utilisateur, Administrateur, Super-utilisateur)</li>
+                <li>Flux de travail pour l'initiation et l'approbation des transactions</li>
+                <li>Estimation des temps d'approbation des transactions</li>
+                <li>Vues de tableau de bord pour les utilisateurs et les administrateurs</li>
+                <li>Conception responsive pour mobile et bureau</li>
+            </ul>
+        </section>
+        
+        <section>
+            <h2>Technologies Utilisées</h2>
+            <ul>
+                <li>Flask - Framework web micro pour Python</li>
+                <li>SQLAlchemy - Outil SQL et Mapping Objet-Requête (ORM)</li>
+                <li>Auth0 - Plateforme d'authentification et d'autorisation</li>
+                <li>HTML/CSS/JavaScript - Développement front-end</li>
+            </ul>
+        </section>
+        
+        <section>
+            <h2>Développement Futur</h2>
+            <p>Nous nous engageons à améliorer notre application avec des fonctionnalités supplémentaires telles que des mises à jour en temps réel des transactions, des capacités de reporting améliorées et des renforcements de sécurité supplémentaires.</p>
+        </section>
+        
+        <section>
+            <h2>Contactez-nous</h2>
+            <p>Si vous avez des questions, des suggestions ou des commentaires, n'hésitez pas à nous contacter.</p>
+            <p>Email : kenza@entreprise.com</p>
+            <p>Téléphone : +1234567890</p>
+        </section>
+        
+        <footer>
+            <p>&copy; 2024 Nom de Votre Société. Tous droits réservés.</p>
+        </footer>
+    </div>
+</body>
+</html>

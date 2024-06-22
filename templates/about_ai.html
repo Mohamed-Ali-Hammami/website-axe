@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>À propos de l'IA</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/about_ai_style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>À propos de l'IA</h1>
+        
+        <h2>Introduction</h2>
+        <p>Bienvenue sur la page "À propos de l'IA" de notre application. Ici, nous vous proposons des insights sur le modèle d'Intelligence Artificielle utilisé pour prédire les temps d'approbation des transactions.</p>
+        
+        <h2>Aperçu du Modèle d'IA</h2>
+        <p>Notre application utilise un modèle de Régression Linéaire entraîné sur des données de transactions pour prédire le temps d'approbation des transactions financières. Le modèle prend en compte le type de transaction et le montant comme caractéristiques d'entrée pour estimer le temps requis pour l'approbation.</p>
+        
+        <h2>Formation et Évaluation</h2>
+        <p>Le modèle d'IA est formé en utilisant des données historiques de transactions stockées dans notre base de données. Voici un aperçu du processus de formation :</p>
+        <ul>
+            <li><strong>Collecte des Données :</strong> Les données de transaction sont extraites de notre base de données, en excluant les transactions en attente.</li>
+            <li><strong>Prétraitement des Données :</strong> Les données de transaction sont prétraitées, y compris l'encodage one-hot des types de transactions, la mise à l'échelle des caractéristiques numériques et l'imputation des valeurs manquantes.</li>
+            <li><strong>Entraînement du Modèle :</strong> Un modèle de Régression Linéaire est formé en utilisant les données prétraitées pour apprendre la relation entre les caractéristiques des transactions et les temps d'approbation.</li>
+            <li><strong>Évaluation du Modèle :</strong> La performance du modèle est évaluée à l'aide des métriques suivantes :
+                <ul>
+                    <li><strong>Erreur Quadratique Moyenne (EQM) :</strong> Mesure de la moyenne des carrés des écarts entre les prédictions du modèle et les valeurs réelles des données.</li>
+                    <li><strong>Erreur Quadratique Moyenne Racine (EQMR) :</strong> Racine carrée de l'Erreur Quadratique Moyenne (EQM), indiquant l'écart moyen entre les prédictions du modèle et les valeurs réelles, exprimée dans la même unité que la variable cible.</li>
+                    <li><strong>Coefficient de Détermination (R2) :</strong> Mesure statistique indiquant dans quelle mesure les variations de la variable dépendante sont expliquées par les variations des variables indépendantes dans le modèle. Plus proche de 1, meilleure est l'explication.</li>
+                </ul>
+            </li>
+        </ul>
+        
+        <h2>Capacités Prédictives</h2>
+        <p>Une fois formé, le modèle d'IA peut prédire le temps d'approbation des nouvelles transactions en fonction de leur type et de leur montant. Les prédictions sont faites en temps réel, permettant aux utilisateurs d'estimer quand leurs transactions seront probablement approuvées.</p>
+        
+        <h2>Application dans Notre Plateforme</h2>
+        <p>Dans notre plateforme, ce modèle d'IA améliore l'expérience utilisateur en fournissant des temps d'approbation estimés pour les transactions initiées par les utilisateurs. Cela aide à gérer les attentes et à améliorer la planification des transactions.</p>
+        
+        <h2>Développements Futurs</h2>
+        <p>Nous travaillons continuellement à améliorer la précision et l'efficacité de notre modèle d'IA. Les développements futurs pourraient inclure l'intégration de plus de caractéristiques de transaction, l'optimisation des performances du modèle et l'expansion de son application à d'autres aspects des services financiers.</p>
+        
+        <h2>Contactez-Nous</h2>
+        <p>Si vous avez des questions ou des commentaires concernant notre modèle d'IA ou son application, n'hésitez pas à nous contacter. Nous apprécions vos contributions et nous nous engageons à fournir une expérience utilisateur fluide.</p>
+    </div>
+    <div class="footer">
+        <p>Contactez-nous à <a href="mailto:contact@votreentreprise.com">kenza@entreprise.com</a></p>
+    </div>
+</body>
+</html>

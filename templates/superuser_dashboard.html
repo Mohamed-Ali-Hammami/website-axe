@@ -1,0 +1,225 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tableau de bord administrateur</title>
+    <!-- Link to your CSS file -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/superuser_dash_style.css') }}">
+    <!-- Optional: Include Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap">
+    <!-- Toastr CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet">
+    <style>
+        .hidden { display: none; }
+
+    </style>
+</head>
+<body>
+    <div class="background-image" style="background-image: url('{{ url_for('static', filename='logo/slider_home.png') }}');"></div>
+
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="logo">
+                <img src="{{ url_for('static', filename='logo/logo.png') }}" alt="Logo Axe Trx">    
+            </div>
+            <div class="logo-text">AXE TRX</div>
+
+            <!-- Navigation -->
+            <div class="nav">
+                <ul>
+                    <li><a href="/">Se déconnecter</a></li>
+                    <li><a href="/about_us">À propos de nous</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="notification-container hidden">
+            <div id="notificationDropdown" class="notification-dropdown">
+                <ul id="notificationList">
+                    <!-- Notifications will be dynamically added here -->
+                </ul>
+            </div>
+        </div>
+        <div class="wellcome_container">
+        <!-- Welcome Message -->
+        <h1>Bienvenue, administrateur !</h1>
+
+        </div>
+        
+        <div id="unassignedUsersContainer" class="UNscrollable-container">
+            
+            <!-- Unassigned users will be dynamically loaded here -->
+        </div>
+        <!-- Introduction -->
+        <div class="intro">
+            <p class = "descr">Bienvenue sur votre tableau de bord administrateur. Vous pouvez consulter ci-dessous les détails des utilisateurs et affecter des utilisateurs à des administrateurs.</p>
+        </div>
+        
+        <div class="button-container">
+            <button class="sp-button" onclick="showContainer('users-container')">Gérer Utilisateurs</button>
+            <button class="sp-button" onclick="showContainer('admins-container')">Gérer Administrateurs</button>
+            <button class="sp-button" onclick="showContainer('assign-container')">Affecter Utilisateurs</button>
+            <button class="sp-button" onclick="showContainer('add-admin-container')">Ajouter Admin</button>
+            <button class="sp-button" onclick="showContainer('add-superuser-container')">Ajouter Super Utilisateur</button>
+            <button class="sp-button" onclick="trainModel()">Entraîner le modèle IA</button>
+        </div>
+        
+        <!-- Users, Admins, and Assign Users to Admins Containers -->
+        <div class="users-transactions-container">
+            <div id="users-container" class="scrollable-container hidden">
+                <h2>Utilisateurs</h2>
+                <ul class="user-items">
+                    {% for user in users %}
+                    <li class="user-item">
+                        {{ user.username }}
+                        <form action="{{ url_for('delete_user_route') }}" method="POST" style="display:inline;">
+                            <input type="hidden" name="user_id" value="{{ user.user_id }}">
+                            <button class="button" type="submit">Supprimer</button>
+                            <button class="button" type="button" onclick="fetchUserTransactions('{{ user.user_id }}')">Détails</button>
+                        </form>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            
+            <div id="admins-container" class="scrollable-container hidden">
+                <h2>Administrateurs</h2>
+                <ul class="admin-items">
+                    {% for admin in admins %}
+                    <li class="admin-item">
+                        {{ admin.username }} 
+                        <form action="{{ url_for('delete_admin') }}" method="POST" style="display:inline;">
+                            <input type="hidden" name="admin_id" value="{{ admin.admin_id }}">
+                            <button class="button" type="submit">Supprimer</button>
+                        </form>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            
+            <div id="assign-container" class="scrollable-container hidden">
+                <h2>Affecter un utilisateur à un administrateur</h2>
+                <form action="{{ url_for('assign_user_to_admin') }}" method="POST">
+                    <label for="user_id">Utilisateur :</label>
+                    <select class="af-user" id="user_id" name="user_id">
+                        {% for user in users %}
+                        <option value="{{ user.user_id }}">{{ user.username }}</option>
+                        {% endfor %}
+                    </select><br>
+                    
+                    <label for="admin_id">Administrateur :</label>
+                    <select class="af-admin" id="admin_id" name="admin_id">
+                        {% for admin in admins %}
+                        <option value="{{ admin.admin_id }}">{{ admin.username }}</option>
+                        {% endfor %}
+                    </select><br>
+                    
+                    <button class="button" type="submit">Affecter</button>
+                </form>
+            </div>
+            
+            <div id="add-admin-container" class="scrollable-container hidden">
+                <h2>Ajouter un administrateur</h2>
+                <form action="{{ url_for('add_admin') }}" method="POST">
+                    <label for="admin_username">Nom d'utilisateur :</label>
+                    <input type="text" id="admin_username" name="username" required><br>
+                    
+                    <label for="admin_email">Email :</label>
+                    <input type="email" id="admin_email" name="email" required><br>
+                    
+                    <label for="admin_password">Mot de passe :</label>
+                    <input type="password" id="admin_password" name="password" required><br>
+                    
+                    <button class="button" type="submit">Ajouter Admin</button>
+                </form>
+            </div>
+    
+            <div id="add-superuser-container" class="scrollable-container hidden">
+                <h2>Ajouter un super utilisateur</h2>
+                <form action="{{ url_for('add_superuser') }}" method="POST">
+                    <label for="superuser_username">Nom d'utilisateur :</label>
+                    <input type="text" id="superuser_username" name="username" required><br>
+                    
+                    <label for="superuser_email">Email :</label>
+                    <input type="email" id="superuser_email" name="email" required><br>
+                    
+                    <label for="superuser_password">Mot de passe :</label>
+                    <input type="password" id="superuser_password" name="password" required><br>
+                    
+                    <button class="button" type="submit">Ajouter Super Utilisateur</button>
+                </form>
+            </div>
+        </div>
+        
+        <!-- Transaction Details Container -->
+        <div id="transactionDetailsContainer" class="scrollable-container hidden">
+            <h2>Détails des transactions</h2>
+            <div id="transactionDetails">
+                <!-- Transaction details will be dynamically loaded here -->
+            </div>
+        </div>
+        
+        <!-- Model Training and Statistics Container -->
+        <div id="modelTrainingContainer" class="scrollable-container hidden">
+            <h2>Entraînement du modèle et statistiques</h2><br>
+            <div id="modelStatistics">
+                <!-- Model statistics will be dynamically loaded here -->
+            </div>
+            <div id="modelPlots">
+                <!-- Model plots will be dynamically loaded here -->
+            </div>
+        </div>
+        
+    </div>
+    
+    <!-- Footer -->
+    <div class="footer">
+        <div class="copyright">
+            Tous droits réservés à AxeFinance
+        </div>
+    </div>
+    
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Toastr JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for category, message in messages %}
+                        toastr["{{ category }}"]("{{ message }}");
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+        });
+    </script>
+
+    <script>
+        toastr.options = {
+            "closeButton": true,
+            "debug": false,
+            "newestOnTop": true,
+            "progressBar": true,
+            "positionClass": "toast-top-right",
+            "preventDuplicates": true,
+            "onclick": null,
+            "showDuration": "300",
+            "hideDuration": "1000",
+            "timeOut": "5000",
+            "extendedTimeOut": "1000",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+        };
+    </script>
+
+    <!-- Link to external JavaScript file -->
+    <script src="{{ url_for('static', filename='superuser_dash_script.js') }}"></script>
+</body>
+</html>

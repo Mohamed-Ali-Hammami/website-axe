@@ -1,0 +1,248 @@
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #333;
+  background-color: #f2f2f2;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 40px auto;
+  border-radius: 10px;
+  padding: 20px;
+  background-color: rgba(8, 80, 70, 0.726);
+  border: none;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.background-image {
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+.header {
+  display: flex;
+  border-radius: 10px;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+}
+
+.logo img {
+
+  width: 120px;
+  height: auto;
+  margin-right: 10px;
+
+}
+
+.logo-text {
+  font-size: 30px;
+  font-weight: bold;
+  color: rgb(0, 127, 115);
+  text-transform: uppercase;
+  margin-left : 50px;
+  animation: bounce 1s infinite alternate;
+  letter-spacing: 1px;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+}
+@keyframes bounce {
+  0% { transform: translateY(-5px); }
+  100% { transform: translateY(5px); }
+}
+
+.nav {
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  padding: 10px;
+}
+
+.nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.nav li {
+  margin-right: 10px;
+}
+
+.nav a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.nav a:hover {
+  background-color: rgba(0, 0, 0, 0.3); /* Semi-transparent white */
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 18px;
+  margin: 0 10px;
+  transition: background-color 0.3s ease; /* Smooth transition effect */
+}
+h1{
+  margin-bottom: 20px;
+  color: rgb(255, 255, 255);
+  font-size: 30px;
+}
+.intro {
+  margin-bottom: 20px;
+  color: rgb(255, 255, 255);
+  font-size: 18px;
+}
+
+.initiate-transaction {
+  margin-top: 20px;
+}
+
+.initiate-button {
+  background-color: rgba(34, 34, 34, 0.658); /* Semi-transparent white */
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 18px;
+  text-decoration: none;
+  margin: 0 10px;
+  transition: background-color 0.3s ease; /* Smooth transition effect */
+}
+
+.initiate-button:hover {
+  background-color: rgba(0, 117, 0, 0.5);
+  border: rgba(4, 247, 4, 0.555);
+}
+
+.transactions-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.rejected-transactions,
+.pending-transactions,
+.confirmed-transactions {
+  width: 45%;
+  background-color: rgba(255, 255, 255, 0.514);
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-height: 50vh;
+  overflow-y: auto;
+  margin: 20px 10px;
+}
+/* Scrollbar Track */
+.rejected-transactions,
+.pending-transactions,
+.confirmed-transactions {
+    background-color: rgba(243, 242, 242, 0.466);
+}
+
+/* Scrollbar Handle (Thumb) */
+.rejected-transactions::-webkit-scrollbar-thumb,
+.pending-transactions::-webkit-scrollbar-thumb,
+.confirmed-transactions::-webkit-scrollbar-thumb {
+    background-color: #ffffff; /* White */
+    border-radius: 10px;
+    border: 3px solid transparent; /* Transparent border */
+}
+
+/* Optional: Scrollbar Corner */
+.rejected-transactions::-webkit-scrollbar-corner,
+.pending-transactions::-webkit-scrollbar-corner,
+.confirmed-transactions::-webkit-scrollbar-corner {
+    background-color: rgba(0, 0, 0, 0);
+}
+
+/* Scrollbar */
+.rejected-transactions::-webkit-scrollbar,
+.pending-transactions::-webkit-scrollbar,
+.confirmed-transactions::-webkit-scrollbar {
+    width: 10px; /* Adjust scrollbar width */
+}
+.transaction-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.transaction-item {
+  border-bottom: 1px solid #ddd;
+  padding: 10px 0;
+}
+
+.transaction-details {
+  display: block;
+}
+
+.transaction-details span {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 16px;
+}
+
+.pending-text {
+  color: orange;
+}
+
+.confirmed-text {
+  color: green;
+}
+.rejected-text{
+  color: red;
+}
+
+.logout {
+  position: absolute;
+  bottom: 50px;
+  right: 20px;
+}
+
+.logout-button {
+  display: inline-block;
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 18px;
+  text-decoration: none;
+  margin: 0 10px;
+  transition: background-color 0.3s ease;
+}
+
+.logout-button:hover {
+  background-color: #0056b3;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #333;
+  padding: 10px 0;
+  text-align: center;
+  font-size: 14px;
+  color: #fff;
+}
+
+.copyright {
+  font-weight: bold;
+  color: #fff;
+  letter-spacing: 1px;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+}

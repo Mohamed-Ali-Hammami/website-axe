@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bienvenue sur Axe Trx</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index_styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        {% set background_image_url = url_for('static', filename='logo/slider_home.png') %}
+        <div class="background-image" style="background-image: url('{{ background_image_url }}');"></div>
+
+        <!-- Logo -->
+        <div class="header">
+            <div class="logo">
+                <img src="{{ url_for('static', filename='logo/logo.png') }}" alt="Axe Trx Logo" class="logo-img">
+            </div>
+            <div class="logo-text">AXE TRX</div>
+        </div>
+        
+        <div class="content">
+            <div class="wellcome_container">
+                <h4 class="welcome-message">
+                    Bienvenue sur Axe Trx,<br>
+                    votre application privée pour gérer et initier vos transactions bancaires.
+                </h4>
+            </div>
+            <div class="black-transparent-container">
+                <p class="project-description">
+                    Axe Trx est une application innovante conçue pour vous offrir un contrôle total sur vos transactions bancaires.<br>
+                    Notre plateforme permet aux utilisateurs de s'inscrire et d'initier des transactions. Les identifiants et les transactions sont enregistrés dans une base de données SQL, organisée en deux tableaux distincts.<br>
+                    <br>
+                    L'application utilise un modèle d'intelligence artificielle, basé sur la technologie de machine learning, pour prédire approximativement le jour et l'heure auxquels une transaction en attente sera approuvée.<br>
+                    <br>
+                    Que vous souhaitiez initier une nouvelle transaction ou annuler une transaction existante, notre plateforme conviviale et sécurisée vous permet de le faire en toute simplicité.
+                </p>
+            </div>
+            <div class="sp_button_container">              
+                <a href="/login" class="button">Se connecter</a>
+                <p class="register-description">Enregistrez-vous pour profiter pleinement de notre application</p><br>
+                <a href="/register" class="button">S'enregistrer</a>
+
+                <!-- "À propos de nous" button -->
+                <a href="/about_us" class="button">À propos de nous</a>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="footer-content">
+            <div class="copyright">
+                Tous droits réservés à AxeFinance
+            </div>
+            <div class="footer-links">
+                <a href="/login" class="admin-login-button">Connexion Admin</a>
+                <a href="/superuser_login" class="superuser-login-button">Connexion Superuser</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

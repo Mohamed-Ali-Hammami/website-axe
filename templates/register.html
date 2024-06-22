@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Page</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/register_style.css') }}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        {% set background_image_url = url_for('static', filename='logo/slider_home.png') %}
+        <div class="background-image" style="background-image: url('{{ background_image_url }}');"></div>
+        
+        <div class="logo">
+            <img src="{{ url_for('static', filename='logo/logo.png') }}" alt="Axe Trx Logo">    
+        </div>
+        <div class="logo-text">AXE TRX</div>
+        
+        <h1>Inscrivez-vous ici !</h1>
+        
+        <p class="register-description">
+            Enregistrez-vous pour profiter pleinement de notre application Axe Trx. 
+            Une fois inscrit, vous pourrez initier, gérer et approuver vos transactions bancaires en toute simplicité et sécurité.
+        </p>
+        <form action="/register" method="post">
+            <label for="email">
+                <span class="icon email-icon"></span>
+                Email:
+            </label>
+            <input type="email" id="email" name="email" required><br><br>
+            
+            <label for="username">
+                <span class="icon username-icon"></span>
+                Nom d'utilisateur:
+            </label>
+            <input type="text" id="username" name="username" required><br><br>
+                     
+            <label for="password">
+                <span class="icon password-icon"></span>
+                Mot de passe:
+            </label>
+            <input type="password" id="password" name="password" required><br><br>
+            
+            <button type="submit" class="register-button">S'enregistrer</button>
+            
+            {% if error %}
+            <p style="color: red;">{{ error }}</p>
+            {% endif %}
+        
+            <div class="btn-group" role="group" aria-label="Social Login Buttons">
+                <p>ou inscrivez-vous avec:</p>
+                <a href="/auth0-login" class="btn btn-outline-primary">
+                    <i class="fab fa-google"></i> Google
+                </a>
+                <a href="/auth0-login" class="btn btn-outline-dark">
+                    <i class="fab fa-apple"></i> Apple
+                </a>
+                <a href="/auth0-login" class="btn btn-outline-info">
+                    <i class="fab fa-microsoft"></i> Outlook
+                </a>
+                <a href="/auth0-login" class="btn btn-outline-purple">
+                    <i class="fab fa-yahoo"></i> Yahoo
+                </a>
+            </div>
+            <br>
+            <a href="/" class="return-button">Retour</a>
+        </form>
+    </div>
+
+    <div class="footer">
+        <div class="copyright">
+            Tous droits réservés à AxeFinance
+        </div>
+    
+</body>
+</html>

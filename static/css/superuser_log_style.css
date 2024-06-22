@@ -1,0 +1,151 @@
+body {
+    font-family: 'Roboto', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: white; /* Text color for body */
+    background-color: #f4f4f4; /* Background color for body */
+}
+
+.container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    text-align: center;
+    padding: 20px;
+}
+
+.background-image {
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: -1;
+}
+
+.logo {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 1;
+}
+
+.logo img {
+    width: 100px;
+    height: auto;
+}
+
+.logo-text {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 30px;
+    font-weight: bold;
+    color:rgb(0, 127, 115);
+    cursor:none;
+    animation: bounce 1s infinite alternate;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+  }
+
+@keyframes bounce {
+    0% { transform: translateY(-5px); }
+    100% { transform: translateY(5px); }
+}
+
+h1 {
+    margin-bottom: 20px;
+    color: white; /* Set the color of h1 to white */
+}
+
+form {
+    text-align: center;
+    background-color: rgba(8, 80, 70, 0.726); /* Transparent black background */
+    padding: 20px;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+
+label {
+    display: block;
+    margin-bottom: 10px;
+    color: white; /* Set label color to white */
+}
+
+input[type="email"],
+input[type="password"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: calc(100% - 22px); /* Adjusted width to accommodate padding and border */
+    max-width: 100%;
+    margin-bottom: 20px;
+    font-size: 16px;
+}
+
+button.login-button {
+    background-color: rgba(0, 123, 255, 0.5); /* Transparent blue background */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.3s ease;
+}
+
+button.login-button:hover {
+    background-color: rgba(0, 123, 255, 0.8); /* Darker transparent blue on hover */
+}
+
+p.error-message {
+    color: red;
+    margin-top: 10px;
+}
+
+.return-button {
+    margin-top: 20px;
+}
+
+.return-button  {
+    background-color: rgba(255, 255, 255, 0.3); /* Semi-transparent white */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    text-decoration: none;
+    margin: 0 10px;
+    transition: background-color 0.3s ease; /* Smooth transition effect */
+}
+  
+.return-button:hover {
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #333;
+    padding: 10px 0;
+    text-align: center;
+    font-size: 14px;
+    color: #fff;
+  }
+  
+  .copyright {
+    font-weight: bold;
+    color: #fff;
+    letter-spacing: 1px;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+  }

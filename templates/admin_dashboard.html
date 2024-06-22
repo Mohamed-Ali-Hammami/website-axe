@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tableau de bord administrateur</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/admin_dash_style.css') }}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+</head>
+<body>
+    <div class="background-image" style="background-image: url('{{ url_for('static', filename='logo/slider_home.png') }}');"></div>
+
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="logo">
+                <img src="{{ url_for('static', filename='logo/logo.png') }}" alt="Logo Axe Trx">    
+            </div>
+            <div class="logo-text">AXE TRX</div>
+
+            <!-- Navigation -->
+            <div class="nav">
+                <ul>
+                    <li><a href="/">Se déconnecter</a></li>
+                    <li><a href="/about_us">À propos de nous</a></li>
+                </ul>
+            </div>
+        </div>
+        <br>
+        <h1>Bienvenue sur votre plateforme administrateur</h1>
+        <br>
+        <div class="intro">
+            <p>Vous êtes connecté en tant que {{ usernames }}. <br>Voici la liste des utilisateurs qui vous sont affectés.</p>
+        </div>
+
+        <div class="users-transactions-container">
+            <div class="users-container scrollable-container">
+                <h2>Liste des utilisateurs</h2>
+                <ul class="user-items">
+                    {% for user in users %}
+                    <li class="user-item">
+                        {{ user.username }}
+                        <button class="a_button" type="button" onclick="fetchUserTransactions('{{ user.user_id }}')">Détails</button>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+            <div id="transactionDetailsContainer" class="transactions-container scrollable-container hidden">
+                <h2>Détails des transactions</h2>
+                <div id="filterBar" class="filter-bar">
+                    <label for="transactionFilter">Filtrer par statut: </label>
+                    <select class="filter" id="transactionFilter" onchange="applyFilter()">
+                        <option value="all">Tous</option>
+                        <option value="pending">En attente</option>
+                        <option value="approved">Approuvé</option>
+                        <option value="rejected">Rejeté</option>
+                    </select>
+                </div>
+                <div id="transactionDetails">
+                    <!-- Transaction details will be dynamically loaded here -->
+                </div>
+            </div>
+        </div>
+
+        <div class="logout">
+            <a href="/login" class="logout-button">Se déconnecter</a>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="copyright">
+            Tous droits réservés à AxeFinance
+        </div>
+    </div>
+
+    <!-- JavaScript libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <script src="{{ url_for('static', filename='admin_dash_script.js') }}"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+
+</body>
+</html>

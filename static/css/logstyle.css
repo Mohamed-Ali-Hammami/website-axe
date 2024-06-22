@@ -1,0 +1,229 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.background-image {
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: -1;
+}
+
+.logo {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 1;
+}
+
+.logo img {
+  width: 100px;
+  height: auto;
+}
+
+.logo-text {
+  font-size: 30px;
+  font-weight: bold;
+  color:rgb(0, 127, 115);
+  cursor:none;
+  animation: bounce 1s infinite alternate;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+@keyframes bounce {
+  0% { transform: translateY(-5px); }
+  100% { transform: translateY(5px); }
+}
+
+h1 {
+  margin-bottom: 20px;
+}
+
+form {
+  text-align: center;
+  background-color: rgba(8, 80, 70, 0.726); /* Transparent black background */
+  padding: 20px;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+  color: white; /* Set label color to white */
+}
+
+input[type="text"],
+input[type="password"],input[type="email"] {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: calc(70% - 10px); /* Adjusted width to accommodate padding and border */
+  max-width: 70%;
+  margin-bottom: 20px;
+  font-size: 16px;
+}
+h1 {
+  color: white; /* Set the color of h1 to white */
+  margin-bottom: 20px;
+}
+p {
+  color: white; /* Set the color of h1 to white */
+  margin-bottom: 20px;
+}
+
+button.login-button {
+  background-color: rgba(0, 123, 255, 0.5); /* Transparent blue background */
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 18px;
+  transition: background-color 0.3s ease;
+}
+
+button.login-button:hover {
+  background-color: rgba(0, 123, 255, 0.8); /* Darker transparent blue on hover */
+}
+
+p.error-message {
+  color: red;
+  margin-top: 10px;
+}
+/* Social login buttons */
+.btn-group {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.btn-group a {
+  display: inline-block;
+  width: 120px; /* Adjust width as needed */
+  margin: 5 5px;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  color: #333;
+  border: 1px solid #837b7b;
+  border-radius: 5px;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+.btn-group a i {
+  margin-right: 5px;
+}
+
+.btn-group a:hover {
+  background-color: #a09b9b; /* Lighter background on hover */
+  color: #c7cace; /* Primary color on hover */
+  border-color: #383535; /* Primary color border on hover */
+}
+
+/* OAuth Buttons */
+.oauth-buttons {
+    margin-top: 20px;
+}
+
+.oauth-button {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 10px;
+    border-radius: 5px;
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.oauth-button.google {
+    background-color: rgba(255, 255, 255, 0.3); /* Semi-transparent white */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    text-decoration: none;
+    margin: 0 10px;
+    transition: background-color 0.3s ease; /* Smooth transition effect */
+}
+.oauth-button.google:hover { background-color: #c23321; }
+
+.oauth-button.outlook {
+    background-color: rgba(255, 255, 255, 0.3); /* Semi-transparent white */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    text-decoration: none;
+    margin: 0 10px;
+    transition: background-color 0.3s ease; /* Smooth transition effect */
+}
+.oauth-button.outlook:hover { background-color: #005ea6; }
+
+.oauth-button.yahoo {
+    background-color: rgba(255, 255, 255, 0.3); /* Semi-transparent white */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    text-decoration: none;
+    margin: 0 10px;
+    transition: background-color 0.3s ease; /* Smooth transition effect */
+}
+.oauth-button.yahoo:hover { background-color: #5b0979; }
+
+.oauth-button.apple {
+    background-color: rgba(255, 255, 255, 0.3); /* Semi-transparent white */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    text-decoration: none;
+    margin: 0 10px;
+    transition: background-color 0.3s ease; /* Smooth transition effect */
+}
+.oauth-button.apple:hover { background-color: #333333; }
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #333;
+  padding: 10px 0;
+  text-align: center;
+  font-size: 14px;
+  color: #fff;
+}
+
+.copyright {
+  font-weight: bold;
+  color: #fff;
+  letter-spacing: 1px;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+}

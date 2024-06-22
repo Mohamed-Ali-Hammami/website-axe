@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Initier une transaction</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/initiate_trx_style.css') }}">
+  <!-- Include Google Fonts -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap">
+</head>
+<body>
+    <div class="container">
+        <!-- Image de fond -->
+        {% set background_image_url = url_for('static', filename='logo/slider_home.png') %}
+        <div class="background-image" style="background-image: url('{{ background_image_url }}');"></div>
+        
+        <!-- Logo -->
+        <div class="logo">
+            <img src="{{ url_for('static', filename='logo/logo.png') }}" alt="Logo Axe Trx">    
+        </div>
+        <div class="logo-text">AXE TRX</div>
+        
+        <h1 class="welcome-message">Bienvenue, vous êtes connecté en tant que {{ username }}!</h1>
+        
+        <!-- Formulaire de transaction -->
+        <div class="transaction-form">
+            <h2>Envoyer de l'argent à un autre utilisateur</h2>
+            <form action="/initiate_transaction" method="post">
+                <label for="recipient">Destinataire :</label>
+                <input type="text" id="recipient" name="recipient" required>
+                <br>
+                <label for="amount">Montant :</label>
+                <input type="number" id="amount" name="amount" min="1" required>
+                <br>
+                <label for="transaction-type">Type de transaction :</label>
+                <select id="transaction-type" name="transaction-type">
+                    <option value="instant">Paiement</option>
+                    <option value="instant">Achat</option>
+                    <option value="instant">Don</option>
+                </select>
+                <br>
+                <button type="submit" class="send-button">Envoyer</button>
+            </form>
+        </div>
+
+        <!-- Boutons d'action -->
+        <div class="action-buttons">
+            <a href="/dashboard" class="transaction-button">Retourner</a>
+            <a href="/logout" class="logout-button">Se déconnecter</a>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="copyright">
+            Tous droits réservés à AxeFinance
+        </div>
+    </div>
+</body>
+</html>

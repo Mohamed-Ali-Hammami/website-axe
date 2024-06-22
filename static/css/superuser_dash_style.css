@@ -1,0 +1,391 @@
+body {
+    font-family: 'Roboto', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: white; /* Text color for body */
+    background-color: #f4f4f4; /* Background color for body */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 40px auto;
+
+    border-radius: 10px;
+    padding: 20px;
+    background-color: rgba(8, 80, 70, 0.726);
+    border: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+
+.header {
+    display: flex;
+    border-radius: 10px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+  }
+
+
+.wellcome_container {
+    max-width: 1200px;
+    margin: 10px auto;
+    margin-top: px; /* Adjust this value as needed to raise the container */
+    border-radius: 50px;
+    min-height: 8vh;
+    padding: 10px;
+    background-color: rgba(8, 80, 70, 0.726);
+    border: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.384);
+}
+
+
+.background-image {
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+  }
+.logo img {
+    width: 120px;
+    height: auto;
+    margin-right: 10px;
+  }
+  
+  .logo-text {
+    font-size: 30px;
+    font-weight: bold;
+    color: rgb(0, 127, 115);
+    text-transform: uppercase;
+    margin-left : 50px;
+    animation: bounce 1s infinite alternate;
+    letter-spacing: 1px;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+  }
+  @keyframes bounce {
+    0% { transform: translateY(-5px); }
+    100% { transform: translateY(5px); }
+  }
+
+.af-admin,
+.af-user{
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: calc(70% - 10px); /* Adjusted width to accommodate padding and border */
+    max-width: 100%;
+    margin-bottom: 20px;
+    font-size: 16px;
+  }
+
+h1 {
+    font-family: 'Helvetica Neue', 'Segoe UI', Arial, sans-serif;
+    font-size: 36px; /* Default font size */
+    font-weight: 600; /* Regular font weight */
+    color: rgba(255, 255, 255, 0.479); /* Dark gray text color */
+    line-height: 1.4; /* Line height for readability */
+
+}
+
+h2 {color: rgb(255, 255, 255);
+    
+    margin-bottom: 20px;
+}
+
+p {color: rgb(225, 243, 175);
+    
+}
+
+.descr{
+    font-family: 'Helvetica Neue', 'Segoe UI', Arial, sans-serif;
+    font-size: 30px; /* Default font size */
+    font-weight: 600; /* Regular font weight */
+    color: rgba(255, 255, 255, 0.897); /* Dark gray text color */
+    line-height: 1.4; /* Line height for readability */
+
+}
+
+.intro {
+    margin-bottom: 20px;
+}
+
+
+.UNscrollable-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    flex: 1;
+    background-color: rgba(8, 80, 70, 0.726);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-height: 20vh;
+    overflow-y: auto;
+    width: calc(40% - 50px); /* Adjusted width */
+    margin: 20px 10px; /* Adjusted margin */
+}
+
+/* Scrollbar Track */
+.scrollable-container::-webkit-scrollbar-track, 
+.UNscrollable-container::-webkit-scrollbar-track {
+    background-color: rgba(0, 0, 0, 0);
+}
+
+/* Scrollbar Handle (Thumb) */
+.scrollable-container::-webkit-scrollbar-thumb,
+.UNscrollable-container::-webkit-scrollbar-thumb {
+    background-color: #ffffff; /* White */
+    border-radius: 10px;
+    border: 3px solid transparent; /* Transparent border */
+}
+
+/* Optional: Scrollbar Corner */
+.scrollable-container::-webkit-scrollbar-corner,
+.UNscrollable-container::-webkit-scrollbar-corner {
+    background-color: rgba(0, 0, 0, 0);
+}
+
+/* Scrollbar */
+.scrollable-container::-webkit-scrollbar,
+.UNscrollable-container::-webkit-scrollbar {
+    width: 10px; /* Adjust scrollbar width */
+}
+.scrollable-container p:last-child,
+.UNscrollable-container p:last-child {
+    font-family: 'Roboto', sans-serif; /* Google Font Roboto */
+    font-size: 16px;
+    color: #ffffff; /* White text color */
+    margin-bottom: 80x; /* Spacing between paragraphs */
+    line-height: 1.5; /* Line height for better readability */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3); /* Line between elements */
+    padding-bottom: 8px; /* Spacing at the bottom of each paragraph */
+}
+
+.UNscrollable-container p {
+    border-bottom: none; /* Remove border-bottom for the last paragraph */
+}
+
+
+
+.users-transactions-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+.scrollable-container {
+    align-items: center;
+    flex: 1;
+    background-color: rgba(8, 80, 70, 0.726);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-height: 50vh;
+    overflow-y: auto;
+    width: calc(100% - 20px); /* Adjusted width */
+    margin: 20px 10px; /* Adjusted margin */
+}
+
+.scrollable-container h2 {
+    margin-bottom: 10px;
+    color: white; /* Heading color */
+}
+
+.scrollable-container ul {
+    list-style-type: none;
+    padding: 10px;
+    margin: 0;
+}
+
+.scrollable-container li {
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    background-color: rgba(0, 0, 0, 0.5); /* Light gray background for user items */
+    color: white; /* Text color for list items */
+}
+
+.scrollable-container button {
+    background-color: rgba(255, 255, 255, 0.3); /* Semi-transparent white */
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    text-decoration: none;
+    margin: 0 5px;
+    transition: background-color 0.3s ease; /* Smooth transition effect */
+}
+
+.scrollable-container button:hover {
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+input[type="text"],
+input[type="password"],input[type="email"] {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: calc(50% - 22px); /* Adjusted width to accommodate padding and border */
+  max-width: 100%;
+  margin-bottom: 20px;
+  font-size: 16px;
+}
+.button-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 20px;
+  }
+  
+  .sp-button {
+    flex: 1;
+    margin: 10px;
+  }
+.admin-items,
+.user-items {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+.admin-item,
+.user-item {
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    background-color: rgba(0, 0, 0, 0.5); /* Light gray background for user items */
+}
+
+
+.transaction-item {
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    background-color: rgba(0, 0, 0, 0.5); /* Light gray background for user items */
+}
+
+.logout {
+    position: absolute;
+    bottom: 50px;
+    right: 20px;
+}
+
+.logout-button {
+    background-color: rgba(255, 255, 255, 0.3); /* Semi-transparent white */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    text-decoration: none;
+    margin: 0 10px;
+    transition: background-color 0.3s ease; /* Smooth transition effect */
+}
+
+.logout-button:hover {
+    background-color: #c82333; /* Darker red on hover */
+}
+
+.sp-button {
+    margin-top: 20px;
+    background-color: rgba(255, 255, 255, 0.3); /* Semi-transparent white */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    text-decoration: none;
+    margin: 20 10px;
+    transition: background-color 0.3s ease; /* Smooth transition effect */
+}
+
+.sp-button:hover {
+    background-color: rgba(31, 31, 31, 0.685);
+}
+.pending-text {
+    color: orange;
+}
+
+.confirmed-text {
+    color: lightgreen;
+}
+
+.button {
+    margin-top: 20px;
+    background-color: rgba(255, 255, 255, 0.3); /* Semi-transparent white */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    text-decoration: none;
+    margin: 0 10px;
+    transition: background-color 0.3s ease; /* Smooth transition effect */
+}
+
+.button:hover {
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #333;
+    padding: 10px 0;
+    text-align: center;
+    font-size: 14px;
+    color: #fff;
+  }
+  
+  .copyright {
+    font-weight: bold;
+    color: #fff;
+    letter-spacing: 1px;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+  }
+
+.nav {
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  padding: 10px;
+}
+
+.nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.nav li {
+  margin-right: 10px;
+}
+
+.nav a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.nav a:hover {
+  background-color: rgba(0, 0, 0, 0.3); /* Semi-transparent white */
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 18px;
+  margin: 0 10px;
+  transition: background-color 0.3s ease; /* Smooth transition effect */
+}

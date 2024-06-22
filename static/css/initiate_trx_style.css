@@ -1,0 +1,152 @@
+body {
+    font-family: 'Roboto', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: white;
+    background-color: #f4f4f4;
+}
+
+.container {
+    position: relative; /* Ensure relative positioning for absolute elements */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    text-align: center;
+    padding: 20px;
+}
+
+.background-image {
+    background-size: cover; /* Adjust to your needs */
+    background-position: center; /* Adjust to your needs */
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: -1; /* Move the background behind other elements */
+}
+
+.logo {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 1; /* Ensure the logo is above other content */
+}
+
+.logo img {
+    width: 100px; /* Adjust width as needed */
+    height: auto; /* Maintain aspect ratio */
+}
+
+.logo-text {
+    font-size: 30px;
+    font-weight: bold;
+    color: rgb(0, 127, 115);
+    text-transform: uppercase;
+    margin-left : 50px;
+    animation: bounce 1s infinite alternate;
+    letter-spacing: 1px;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+  }
+
+@keyframes bounce {
+    0% { transform: translateY(-5px); }
+    100% { transform: translateY(5px); }
+}
+
+.welcome-message {
+    font-size: 30px;
+    margin-bottom: 20px;
+    color: white;
+}
+
+.transaction-form {
+    background-color: rgba(8, 80, 70, 0.726); /* Semi-transparent background */
+    padding: 20px;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 500px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.transaction-form h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.transaction-form label {
+    display: block;
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.transaction-form input,
+.transaction-form select {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.transaction-form input[type="text"],
+.transaction-form input[type="number"],
+.transaction-form select {
+    background-color: #fff;
+    color: #333;
+}
+
+.send-button {
+    background-color: #b1b1b1b4;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.3s ease; /* Smooth transition effect */
+}
+
+.send-button:hover {
+    background-color: #00ff2a56;
+}
+
+.action-buttons {
+    margin-top: 20px;
+}
+
+.action-buttons a {
+    background-color: rgba(255, 255, 255, 0.3); /* Semi-transparent white */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    text-decoration: none;
+    margin: 0 10px;
+    transition: background-color 0.3s ease; /* Smooth transition effect */
+}
+
+.action-buttons a:hover {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+.footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #333;
+    padding: 10px 0;
+    text-align: center;
+    font-size: 14px;
+    color: #fff;
+  }
+  
+  .copyright {
+    font-weight: bold;
+    color: #fff;
+    letter-spacing: 1px;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+  }

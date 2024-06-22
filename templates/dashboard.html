@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tableau de bord utilisateur</title>
+    <!-- CSS styles -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboardstyle.css') }}">
+    <!-- Include Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;500;700&display=swap">
+    <!-- Toastr CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="background-image" style="background-image: url('{{ url_for('static', filename='logo/slider_home.png') }}');"></div>
+
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="logo">
+                <img src="{{ url_for('static', filename='logo/logo.png') }}" alt="Logo Axe Trx">    
+            </div>
+            <div class="logo-text">AXE TRX</div>
+
+            <!-- Navigation -->
+            <div class="nav">
+                <ul>
+                    <li><a href="/">Se déconnecter</a></li>
+                    <li><a href="/about_us">À propos de nous</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- Welcome Message -->
+        <h1>Bienvenue, {{ username }} !</h1>
+
+        <!-- Introduction -->
+        <div class="intro">
+            <p>Bienvenue sur votre tableau de bord. Vous pouvez initier et consulter ci-dessous les détails de vos transactions.</p>
+        </div>
+        <br>
+        <!-- Initiate Transaction Button -->
+        <div class="initiate-transaction">
+            <a href="{{ url_for('initiate_transaction_page') }}" class="initiate-button">Initier une transaction</a>
+        </div>
+
+        <!-- Transactions Container -->
+        <div class="transactions-container">
+            <!-- Pending Transactions -->
+            <section class="pending-transactions">
+                <h2>Transactions en attente</h2>
+                <div class="transaction-list">
+                    <ul>
+                        {% for transaction in transactions %}
+                            <li class="transaction-item">
+                                <div class="transaction-details">
+                                    <span><strong>ID de l'expéditeur :</strong> {{ transaction.sender_id }}</span>
+                                    <span><strong>ID du destinataire :</strong> {{ transaction.recipient_id }}</span>
+                                    <span><strong>Montant :</strong> {{ transaction.amount }}</span>
+                                    <span><strong>Type de transaction :</strong> {{ transaction.transaction_type }}</span>
+                                    <span><strong>Date de transaction :</strong> {{ transaction.formatted_transaction_date }}</span>
+                                    <span class="pending-text"><strong>Statut :</strong> {{ transaction.status }}</span>
+                                    <span><strong>Estimation d'approbation :</strong> {{ transaction.formatted_estimation_time }}</span> 
+                                </div>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Confirmed Transactions -->
+            <section class="confirmed-transactions">
+                <h2>Transactions confirmées</h2>
+                <div class="transaction-list">
+                    <ul>
+                        {% for transaction in confirmed_transactions %}
+                            <li class="transaction-item">
+                                <div class="transaction-details">
+                                    <span><strong>ID de l'expéditeur :</strong> {{ transaction.sender_id }}</span>
+                                    <span><strong>ID du destinataire :</strong> {{ transaction.recipient_id }}</span>
+                                    <span><strong>Montant :</strong> {{ transaction.amount }}</span>
+                                    <span><strong>Type de transaction :</strong> {{ transaction.transaction_type }}</span>
+                                    <span class="confirmed-text"><strong>Date de confirmation :</strong> {{ transaction.formatted_transaction_date }}</span>
+                                </div>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Rejected Transactions -->
+            <section class="rejected-transactions">
+                <h2>Transactions rejetées</h2>
+                <div class="transaction-list">
+                    <ul>
+                        {% for transaction in rejected_transactions %}
+                            <li class="transaction-item">
+                                <div class="transaction-details">
+                                    <span><strong>ID de l'expéditeur :</strong> {{ transaction.sender_id }}</span>
+                                    <span><strong>ID du destinataire :</strong> {{ transaction.recipient_id }}</span>
+                                    <span><strong>Montant :</strong> {{ transaction.amount }}</span>
+                                    <span><strong>Type de transaction :</strong> {{ transaction.transaction_type }}</span>
+                                    <span class="rejected-text"><strong>Date de rejet :</strong> {{ transaction.formatted_transaction_date }}</span>
+                                </div>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </section>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <div class="copyright">
+                Tous droits réservés à AxeFinance
+            </div>
+        </div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Toastr JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for category, message in messages %}
+                        toastr["{{ category }}"]("{{ message }}");
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+        });
+    </script>
+
+    <script>
+        toastr.options = {
+            "closeButton": true,
+            "debug": false,
+            "newestOnTop": true,
+            "progressBar": true,
+            "positionClass": "toast-top-right",
+            "preventDuplicates": true,
+            "onclick": null,
+            "showDuration": "300",
+            "hideDuration": "1000",
+            "timeOut": "5000",
+            "extendedTimeOut": "1000",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+        };
+    </script>
+
+    <!-- Link to external JavaScript file -->
+    <script src="{{ url_for('static', filename='dashboard_script.js') }}"></script>
+</body>
+</html>
